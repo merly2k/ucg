@@ -1,0 +1,9 @@
+#выборка последней 1000 сообщений форума
+SELECT thread.threadid, thread.title, thread.lastpost, thread.lastpostid, thread.forumid, thread.lastposter, thread.dateline, thread.views, thread.replycount, thread.visible, thread.open, thread.prefixid, user.username, user.userid, user.usergroupid, user.displaygroupid
+FROM название_базы_форума.thread AS thread
+LEFT JOIN название_базы_форума.user AS user ON ( user.username = thread.lastposter )
+WHERE NOT ISNULL( thread.threadid )
+AND thread.visible = '1'
+AND thread.open != '10'
+ORDER BY lastpost DESC
+LIMIT 0 , 1000;

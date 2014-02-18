@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <title>Универсальный граббер контента v 1.028</title>
+           
+            <script type="text/javascript" language="javascript" src="js/jquery.min.js"></script>
+            <script type="text/javascript" language="javascript" src="js/jquery.min.js"></script>
+            <script type="text/javascript">
+             $(document).ready(function(){
+                 
+             });
+             <?php echo $ajax;?>
+            </script>
+    </head>
+
+    <body>
+        <div id="all">
+            <div class="head">
+                UCG(universal content grabber)
+            </div>
+            <div id="container">
+                <div id="inner"><!--контентный блок-->
+                    <div id="left"><!--левый сайдбар-->
+                        <?php include 'modules/login.php';?>
+                        <?php echo $sidebar->left;?>
+                    </div><!--конец сайдбара-->
+
+                    <div id="right"><!--правый сайдбар-->
+                        <?php echo $sidebar->right;?>
+                    </div><!--конец сайдбара-->
+
+                    <div id="center"><!--главный блок--> 
+                        <?php echo $context ;?>
+                    </div><!--конец главного блока-->
+                    <div class="clear"></div>
+                </div><!--Конец контентного блока-->
+
+            </div>
+            <div class="foot">
+               Универсальный граббер контента v 1.028<br /><?php 
+                        $mem=(int)memory_get_peak_usage(1);
+                        $kb=$mem/1048576 //1024 для килобайтов;
+                        echo "использование памяти: ".number_format( $kb, 1, ',', ' ' )." Mb";
+                       
+                        ?>
+            </div>
+        </div>
+    </body>
+</html>
+
+

@@ -1,0 +1,1 @@
+UPDATE tablename SET columname=REPLACE(columname, 'что', 'чем')

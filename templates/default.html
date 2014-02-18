@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Универсальный граббер контента v 1.062</title>
+        <script type="text/javascript" language="javascript" src="<?php echo WWW_BASE_PATH; ?>js/jquery.min.js"></script>
+        <script type="text/javascript" language="javascript" src="<?php echo WWW_BASE_PATH; ?>js/jquery.ui.js"></script>
+        <script type="text/javascript" src="<?php echo WWW_BASE_PATH; ?>js/jquery.form.js"></script>
+        <script type="text/javascript" src="<?php echo WWW_BASE_PATH; ?>js/jq.rte.js"></script>
+        <script type="text/javascript" src="<?php echo WWW_BASE_PATH; ?>js/jquery.easytooltip.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                <?php echo $ajax;?> 
+            });
+      
+        </script>
+        <!--[if IE]>
+        <script src="js/html5.js"></script>
+        <![endif]-->
+        <link rel="stylesheet" href="<?php echo WWW_CSS_PATH;?>liquid.css" type="text/css" />
+        <link rel="stylesheet" href="<?php echo WWW_CSS_PATH;?>sprite.css" type="text/css" />
+                <link rel="stylesheet" href="<?php echo WWW_CSS_PATH;?>rte.css" type="text/css" />
+        <link rel="stylesheet" href="<?php echo WWW_CSS_PATH;?>style.css" type="text/css" />
+    </head>
+    <body>
+        <div class="span-24">
+            <div class="span-24 border">
+                <div class="space"><h1 class="shadowtext">Универсальный граббер контента</h1></div>
+                <div id="h_navigation" class="span-24">
+                    <a href="<?php echo WWW_BASE_PATH; ?>index"><span class="ss_sprite ss_house">&nbsp;</span>главная</a>
+                    <?php  if(isset($_SESSION['logged_in'])){
+                    if($_SESSION['logged_in']==1):
+                    include_once 'modules/menu.php';
+                    endif; }?>
+                    <a href="<?php echo WWW_BASE_PATH; ?>about"><span class="ss_sprite ss_asterisk_orange ">&nbsp;</span>о системе</a>
+                </div>
+            </div>
+
+            <div id="wrapper" class="clearfix">
+
+                <div class="span-24"> 
+                    <div  class="column span-3 colborder">
+                        <p>
+                              <div id='login' class='login_form box'>
+                                <?php include 'modules/login.php';?>
+                              </div>
+                        </p>
+                                               
+                    </div>
+                    <div  class="column span-17 colborder"><p><?php echo $context ;?><br /><br /><br /><br /></p></div>
+                    <div  class="column span-2">
+                     </div> 
+                </div> 
+
+            </div>
+            <span class="w-24 bottom foot" id="footer">
+                <p class="copy"><a href="http://merlinsoft.od.ua">&copy;2011 разработка Merlinsoft Inc&deg;</a>.</p>
+            </span>
+        </div>
+        
+        <script type="text/javascript"><?php echo $postPrint;?></script>
+        <?php 
+                        $mem=(int)memory_get_peak_usage(1);
+                        $kb=$mem/10485764;
+                        echo "использование памяти: ".number_format( $kb, 1, ',', ' ' )." Mb";
+                        ?>
+    </body>
+</html>
